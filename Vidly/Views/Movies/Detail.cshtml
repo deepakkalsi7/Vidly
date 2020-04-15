@@ -1,0 +1,56 @@
+﻿@model Vidly.Models.Movie
+
+@{
+    ViewBag.Title = "Movie";
+}
+
+<h2>Movie</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Genres.GenreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genres.GenreName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberInStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberInStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loaddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loaddate)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

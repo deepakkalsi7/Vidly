@@ -1,0 +1,32 @@
+﻿@model Vidly.Models.Customer
+
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        @if (Model.Birthdate.HasValue)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </dt>
+
+            <dd>
+                @Html.Raw(String.Format("{0:MM/dd/yyyy}", Model.Birthdate))
+            </dd>
+        }
+    </dl>
+</div>

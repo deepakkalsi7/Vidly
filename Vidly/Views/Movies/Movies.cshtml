@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Vidly.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="button" value="Create" class="btn btn-primary" onclick="location.href='@Url.Action("newmovie", "Movies")'" />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Genre
+        </th>
+        <th>Operations</th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <test> There is no movies currently.</test>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+        <tr>
+            <td>
+
+                @Html.ActionLink(item.Name, "Detail", "Movies", new { Id = item.Id }, null)
+            </td>
+            <td>
+
+                @Html.ActionLink(item.Genres.GenreName, "Detail", "Movies", new { Id = item.Id }, null)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Movies", new { id = item.Id }, null) |
+                @Html.ActionLink("Details", "Details", "Movies", new { id = item.Id }, null) |
+                @Html.ActionLink("Delete", "Delete", "Movies", new { id = item.Id }, null)
+            </td>
+        </tr>
+        }
+    }
+
+
+</table>
